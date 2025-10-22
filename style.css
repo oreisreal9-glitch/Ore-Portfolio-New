@@ -1,0 +1,319 @@
+/*
+  COLOR PALETTE:
+  Primary Accent: #FF5722
+  Secondary Accent: #00BCD4
+  Background: #F5F5F5
+  Text/Base Color: #212121
+*/
+
+:root {
+    --primary-accent: #FF5722;
+    --secondary-accent: #00BCD4;
+    --bg-color: #F5F5F5;
+    --text-color: #212121;
+}
+
+/* GENERAL STYLES & TYPOGRAPHY */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-weight: 800; /* Extra-Bold for that 'Bold' vibe */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-accent);
+    transition: color 0.3s;
+}
+
+/* 1. HERO SECTION STYLING */
+.hero-section {
+    background: linear-gradient(135deg, #212121, #000000); /* Dark, professional background */
+    color: white;
+    padding: 100px 20px;
+    min-height: 60vh; /* Make it a strong visual element */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 800px;
+    position: relative;
+}
+
+.brand-name {
+    font-size: clamp(3rem, 10vw, 6rem); /* Responsive, huge font */
+    letter-spacing: 5px;
+    line-height: 1;
+    margin-bottom: 10px;
+    /* Unique text effect: gradient on text */
+    background: linear-gradient(90deg, var(--primary-accent) 0%, #FFCCBC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 300;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-accent);
+    color: white;
+    border: 2px solid var(--primary-accent);
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--primary-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 87, 34, 0.6);
+}
+
+/* 2. PORTFOLIO GALLERY STYLING */
+.portfolio-container {
+    padding: 60px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.portfolio-gallery {
+    margin-bottom: 80px;
+}
+
+.portfolio-gallery h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.portfolio-gallery h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-accent); /* Use a cool accent for separation */
+    border-radius: 2px;
+}
+
+.gallery-grid {
+    display: grid;
+    /* Responsive Grid: 3 columns on large screens, 2 on medium, 1 on small */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.artwork-item {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artwork-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.artwork-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s;
+}
+
+/* Hover Animation Effect */
+.artwork-item::after {
+    content: 'View Details';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 87, 34, 0.85); /* Primary Accent Overlay */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    text-align: center;
+}
+
+.artwork-item:hover::after {
+    opacity: 1;
+}
+
+/* Placeholder for Logo Section */
+.artwork-item.placeholder {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: span 1; /* Adjust to fit the grid */
+    background-color: #e0e0e0;
+    border: 3px dashed var(--secondary-accent);
+}
+
+
+/* 3. CONTACT SECTION STYLING */
+.contact-section {
+    background-color: var(--text-color); /* Dark section for high contrast */
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contact-content h3 {
+    font-size: 2.5rem;
+    color: var(--primary-accent);
+    margin-bottom: 10px;
+}
+
+.contact-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #25D366; /* WhatsApp Green */
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.whatsapp-button i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+    transform: scale(1.05);
+}
+
+.whatsapp-number {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* 4. LIGHTBOX MODAL STYLING */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 900px;
+    max-height: 80vh;
+    object-fit: contain;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform: scale(0.1)}
+    to {transform: scale(1)}
+}
+
+#lightbox-caption {
+    margin: 15px auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--primary-accent);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* MEDIA QUERIES for Responsiveness */
+@media (max-width: 768px) {
+    .brand-name {
+        letter-spacing: 2px;
+    }
+    .portfolio-gallery h2 {
+        font-size: 2rem;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    .contact-content h3 {
+        font-size: 1.8rem;
+    }
+}
